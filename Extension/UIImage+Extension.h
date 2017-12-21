@@ -18,4 +18,13 @@
  */
 + (UIImage *)imageUseColor:(UIColor *)color;
 
+
+
+/**
+ 获取资源包中的图片
+
+ @param name 图片的名称
+ @return 图片对象
+ */
++ (UIImage *)load:(NSString *)name;
 @end

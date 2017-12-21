@@ -8,17 +8,27 @@
 
 #import "UIButton+Extension.h"
 #import "UIImage+Extension.h"
+#import <objc/runtime.h>
 
 @implementation UIButton (Extension)
 @dynamic backColor;
 
 -(void)setBackColor:(UIColor *)backColor {
+    objc_setAssociatedObject(self, @"kbackColor", backColor, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     [self setBackgroundImage:[UIImage imageUseColor:backColor] forState:UIControlStateNormal];
 }
 -(UIColor *)backColor {
-//    UIImage *image = [self backgroundImageForState:UIControlStateNormal];
-    return [UIColor whiteColor];
+    UIColor *color = objc_getAssociatedObject(self, @"kbackColor");
+    if (color) {
+        return color;
+    } else {
+        return [self backgroundColor];
+    }
 }
+-(void)setBackColor:(UIColor *)color forState:(UIControlState)state {
+    [self setBackgroundImage:[UIImage imageUseColor:color] forState:state];
+}
+
 
 /**
  给按钮添加点击事件
@@ -45,6 +55,21 @@
     NSString *aSelectorName = [NSString stringWithCString:action encoding:NSUTF8StringEncoding];
     SEL sel = NSSelectorFromString(aSelectorName);
     [self addTarget:target selector:sel];
+}
+
+
+/**
+ 给按钮添加block的点击事件回调
+ */
+-(void)addCallBack:(ButtonCallBackBlock)callback {
+    objc_setAssociatedObject(self, @"kButtonCallBackBlock", callback, OBJC_ASSOCIATION_COPY_NONATOMIC);
+    [self addTarget:self selector:@selector(buttonClickedAction:)];
+}
+-(void)buttonClickedAction:(UIButton *)sender {
+    ButtonCallBackBlock block = objc_getAssociatedObject(self, @"kButtonCallBackBlock");
+    if (block) {
+        block();
+    }
 }
 
 @end

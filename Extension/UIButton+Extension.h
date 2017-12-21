@@ -8,9 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^ButtonCallBackBlock)(void);
 @interface UIButton (Extension)
 
-@property (nonatomic, strong) UIColor *backColor; //　背景色
+//背景色 只写属性
+@property (nonatomic, strong) UIColor *backColor;
+
+/**
+ 根据状态值创建背景色
+
+ @param color 背景色
+ @param state 状态值
+ */
+-(void)setBackColor:(UIColor *)color forState:(UIControlState)state;
+
 
 /**
  给按钮添加点击事件
@@ -29,5 +40,10 @@
  */
 -(void)addTarget:(id)target action:(char *)action;
 
+
+/**
+ 给按钮添加block的点击事件回调
+ */
+-(void)addCallBack:(ButtonCallBackBlock)callback;
 
 @end

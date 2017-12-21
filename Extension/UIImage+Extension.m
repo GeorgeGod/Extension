@@ -31,4 +31,26 @@
     return image;
 }
 
+/**
+ 获取资源包中的图片
+ 
+ @param name 图片的名称
+ @return 图片对象
+ */
++ (UIImage *)load:(NSString *)name {
+    if (![name hasSuffix:@".png"]) {
+        //portrait@3x.png
+        name = [NSString stringWithFormat:@"%@@%dx.png", name, (int)[UIScreen mainScreen].scale];
+    }
+    
+    NSString *bundlePath = [[NSBundle mainBundle] pathForResource:@"MineResources" ofType:@"bundle"];
+    
+    bundlePath = [bundlePath stringByAppendingPathComponent:@"images"];
+    
+    NSString *imgPath= [bundlePath stringByAppendingPathComponent:name];
+    
+    UIImage *image = [UIImage imageWithContentsOfFile:imgPath];
+    
+    return image;
+}
 @end
