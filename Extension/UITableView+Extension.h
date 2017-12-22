@@ -10,6 +10,8 @@
 
 @interface UITableView (Extension)
 
++(instancetype)obtainTableViewWithCtrl:(UIViewController *)ctrl;
+
 /**
  获取不带XIB的Cell
  

@@ -11,6 +11,10 @@
 @interface UICollectionView (Extension)
 
 
++(instancetype)obtainCollectionViewWithCtrl:(UIViewController *)ctrl;
+
+
+
 /**
  注册头部
 

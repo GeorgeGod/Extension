@@ -10,6 +10,18 @@
 
 @implementation UITableView (Extension)
 
++(instancetype)obtainTableViewWithCtrl:(UIViewController *)ctrl {
+    
+    UITableView *tb = [[UITableView alloc] initWithFrame:ctrl.view.bounds style:UITableViewStyleGrouped];
+    tb.backgroundColor = [UIColor whiteColor];
+    tb.delegate = ctrl;
+    tb.dataSource = ctrl;
+    tb.estimatedRowHeight = 44;
+    tb.rowHeight = UITableViewAutomaticDimension;
+    [ctrl.view addSubview:tb];
+    return tb;
+}
+
 -(UITableViewCell *)obtainCell:(Class)clazz {
     UITableViewCell *cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(clazz)];
     if (!cell) {

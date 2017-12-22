@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Extension.h"
+#import "UITextField+Extension.h"
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate>
 
@@ -20,6 +21,15 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor lightGrayColor];
     
+//    double res = @(32).scale();
+    
+    NSURL *url = @"www.baidu.com".url();
+    
+    UITextField *tf = [UITextField new];
+    tf.atext(@"hello").adelegate(self).holder(@"").enable(YES);
+//    tf.ltext(@"hello").holder(@"");
+//    tf.text
+    
 //    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 44)];
 //    btn.backgroundColor = [UIColor redColor];
 //    btn.backColor = [UIColor greenColor];
@@ -31,17 +41,21 @@
 //    tb.dataSource = self;
 //    [self.view addSubview:tb];
     
-    UICollectionViewFlowLayout *flow = [UICollectionViewFlowLayout new];
-    flow.itemSize = CGSizeMake(200, 200);
-    flow.headerReferenceSize = CGSizeZero;
-    flow.footerReferenceSize = CGSizeZero;
-    UICollectionView *col = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flow];
-    col.delegate = self;
-    col.dataSource = self;
-    col.backgroundColor = [UIColor whiteColor];
+//    UICollectionViewFlowLayout *flow = [UICollectionViewFlowLayout new];
+//    flow.itemSize = CGSizeMake(200, 200);
+//    flow.headerReferenceSize = CGSizeZero;
+//    flow.footerReferenceSize = CGSizeZero;
+//    UICollectionView *col = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flow];
+//    col.delegate = self;
+//    col.dataSource = self;
+//    col.backgroundColor = [UIColor whiteColor];
+
+    UICollectionView *col = [UICollectionView obtainCollectionViewWithCtrl:self];
+    [col registerCell:[UICollectionViewCell class]];
+    
 //    col dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"UICollectionReusableView" forIndexPath:
-    [col registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:UICollectionElementKindSectionHeader];
-    [col registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:UICollectionElementKindSectionFooter];
+//    [col registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:UICollectionElementKindSectionHeader];
+//    [col registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:UICollectionElementKindSectionFooter];
 //    [col registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
     [self.view addSubview:col];
 }
@@ -74,12 +88,15 @@
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
-    
-    if (!cell) {
-        cell = [[UICollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
-    }
-    cell.backgroundColor = [UIColor greenColor];
+//    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"UICollectionViewCell" forIndexPath:indexPath];
+//
+//    if (!cell) {
+//        cell = [[UICollectionViewCell alloc] initWithFrame:CGRectMake(0, 0, 200, 200)];
+//    }
+//    cell.backgroundColor = [UIColor greenColor];
+//    return cell;
+    UICollectionViewCell *cell = [collectionView obtainCell:[UICollectionViewCell class] forIndexPath:indexPath];
+    cell.backgroundColor = [UIColor randomColor];
     return cell;
 }
 

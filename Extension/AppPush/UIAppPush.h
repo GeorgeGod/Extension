@@ -10,8 +10,8 @@
 
 @interface UIAppPush : NSObject
 
--(void)application:(UIApplication*) application didRegisterForRemoteNotificationsWithDeviceToken:(nonnull NSData *)deviceToken;
+-(void)application:(UIApplication*_Nullable) application didRegisterForRemoteNotificationsWithDeviceToken:(nonnull NSData *)deviceToken;
 
--(void)application:(UIApplication*) application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo;
+-(void)application:(UIApplication*_Nullable) application didReceiveRemoteNotification:(nonnull NSDictionary *)userInfo;
 
 @end

@@ -13,7 +13,10 @@
 #import "UIImage+Extension.h"
 #import "UIFont+Extension.h"
 #import "UIColor+Extension.h"
+#import "NSNumber+Extension.h"
+#import "NSString+Extension.h"
 #import "UITableView+Extension.h"
+#import "UICollectionView+Extension.h"
 #import "UITableViewCell+Extension.h"
 
 #import "UIBaseCell.h"
@@ -22,5 +25,12 @@
 
 
 #import "ExceptionHandler.h"
+
+
+#import "UIControl+Extension.h"
+#import "UIImageView+Extension.h"
+#import "UILabel+Extension.h"
+#import "UITextField+Extension.h"
+#import "UIView+Extension.h"
 
 #endif /* Header_h */

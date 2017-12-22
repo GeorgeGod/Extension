@@ -11,6 +11,18 @@
 @implementation UICollectionView (Extension)
 
 
++(instancetype)obtainCollectionViewWithCtrl:(UIViewController *)ctrl {
+    UICollectionViewFlowLayout *flow = [UICollectionViewFlowLayout new];
+    flow.itemSize = CGSizeMake(200, 200);
+    flow.headerReferenceSize = CGSizeZero;
+    flow.footerReferenceSize = CGSizeZero;
+    UICollectionView *col = [[UICollectionView alloc] initWithFrame:ctrl.view.bounds collectionViewLayout:flow];
+    col.delegate = ctrl;
+    col.dataSource = ctrl;
+    col.backgroundColor = [UIColor whiteColor];
+    return col;
+}
+
 /**
  注册头部
  
