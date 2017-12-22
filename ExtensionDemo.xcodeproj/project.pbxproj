@@ -45,6 +45,14 @@
 		847723CF1FEBC474003475DA /* UIBaseCell.h in Headers */ = {isa = PBXBuildFile; fileRef = 847723CD1FEBC474003475DA /* UIBaseCell.h */; };
 		847723D01FEBC474003475DA /* UIBaseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 847723CE1FEBC474003475DA /* UIBaseCell.m */; };
 		847723D31FEBC561003475DA /* UICellProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 847723D21FEBC561003475DA /* UICellProtocol.h */; };
+		847D25CC1FECA8EC00995D42 /* ExceptionHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 847D25CA1FECA8EC00995D42 /* ExceptionHandler.h */; };
+		847D25CD1FECA8EC00995D42 /* ExceptionHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D25CB1FECA8EC00995D42 /* ExceptionHandler.m */; };
+		847D25CE1FECB06B00995D42 /* UILabelCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847723811FEB7CDE003475DA /* UILabelCell.xib */; };
+		847D25CF1FECB07500995D42 /* UITextFieldCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847723871FEB7CFA003475DA /* UITextFieldCell.xib */; };
+		847D25D01FECB07C00995D42 /* UISwitchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8477238D1FEB7D0D003475DA /* UISwitchCell.xib */; };
+		847D25D11FECB08000995D42 /* UIImageViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 847723931FEB7D38003475DA /* UIImageViewCell.xib */; };
+		847D25D51FECBD9200995D42 /* UICollectionView+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 847D25D31FECBD9200995D42 /* UICollectionView+Extension.h */; };
+		847D25D61FECBD9200995D42 /* UICollectionView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D25D41FECBD9200995D42 /* UICollectionView+Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +122,10 @@
 		847723CD1FEBC474003475DA /* UIBaseCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIBaseCell.h; sourceTree = "<group>"; };
 		847723CE1FEBC474003475DA /* UIBaseCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIBaseCell.m; sourceTree = "<group>"; };
 		847723D21FEBC561003475DA /* UICellProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UICellProtocol.h; sourceTree = "<group>"; };
+		847D25CA1FECA8EC00995D42 /* ExceptionHandler.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExceptionHandler.h; sourceTree = "<group>"; };
+		847D25CB1FECA8EC00995D42 /* ExceptionHandler.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExceptionHandler.m; sourceTree = "<group>"; };
+		847D25D31FECBD9200995D42 /* UICollectionView+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UICollectionView+Extension.h"; sourceTree = "<group>"; };
+		847D25D41FECBD9200995D42 /* UICollectionView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UICollectionView+Extension.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +184,7 @@
 		8477235C1FEB6229003475DA /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				847D25C91FECA8C600995D42 /* Crash */,
 				847723701FEB7070003475DA /* Extension.h */,
 				847723681FEB6278003475DA /* UIButton+Extension.h */,
 				847723691FEB6278003475DA /* UIButton+Extension.m */,
@@ -185,33 +198,14 @@
 				8477237B1FEB7C18003475DA /* UITableView+Extension.m */,
 				847723C91FEBC441003475DA /* UITableViewCell+Extension.h */,
 				847723CA1FEBC441003475DA /* UITableViewCell+Extension.m */,
+				847D25D31FECBD9200995D42 /* UICollectionView+Extension.h */,
+				847D25D41FECBD9200995D42 /* UICollectionView+Extension.m */,
 				847723D11FEBC517003475DA /* Protorcol */,
 				847723AA1FEB988A003475DA /* AppPush */,
-				8477237E1FEB7C89003475DA /* UItableViewCells */,
+				847D25D21FECB0F400995D42 /* UItableViewCells */,
 				8477235E1FEB6229003475DA /* Info.plist */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		8477237E1FEB7C89003475DA /* UItableViewCells */ = {
-			isa = PBXGroup;
-			children = (
-				847723CD1FEBC474003475DA /* UIBaseCell.h */,
-				847723CE1FEBC474003475DA /* UIBaseCell.m */,
-				8477237F1FEB7CDE003475DA /* UILabelCell.h */,
-				847723801FEB7CDE003475DA /* UILabelCell.m */,
-				847723811FEB7CDE003475DA /* UILabelCell.xib */,
-				847723851FEB7CFA003475DA /* UITextFieldCell.h */,
-				847723861FEB7CFA003475DA /* UITextFieldCell.m */,
-				847723871FEB7CFA003475DA /* UITextFieldCell.xib */,
-				8477238B1FEB7D0D003475DA /* UISwitchCell.h */,
-				8477238C1FEB7D0D003475DA /* UISwitchCell.m */,
-				8477238D1FEB7D0D003475DA /* UISwitchCell.xib */,
-				847723911FEB7D38003475DA /* UIImageViewCell.h */,
-				847723921FEB7D38003475DA /* UIImageViewCell.m */,
-				847723931FEB7D38003475DA /* UIImageViewCell.xib */,
-			);
-			name = UItableViewCells;
 			sourceTree = "<group>";
 		};
 		847723AA1FEB988A003475DA /* AppPush */ = {
@@ -231,6 +225,36 @@
 			path = Protorcol;
 			sourceTree = "<group>";
 		};
+		847D25C91FECA8C600995D42 /* Crash */ = {
+			isa = PBXGroup;
+			children = (
+				847D25CA1FECA8EC00995D42 /* ExceptionHandler.h */,
+				847D25CB1FECA8EC00995D42 /* ExceptionHandler.m */,
+			);
+			path = Crash;
+			sourceTree = "<group>";
+		};
+		847D25D21FECB0F400995D42 /* UItableViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				847723CD1FEBC474003475DA /* UIBaseCell.h */,
+				847723CE1FEBC474003475DA /* UIBaseCell.m */,
+				847723911FEB7D38003475DA /* UIImageViewCell.h */,
+				847723921FEB7D38003475DA /* UIImageViewCell.m */,
+				847723931FEB7D38003475DA /* UIImageViewCell.xib */,
+				8477237F1FEB7CDE003475DA /* UILabelCell.h */,
+				847723801FEB7CDE003475DA /* UILabelCell.m */,
+				847723811FEB7CDE003475DA /* UILabelCell.xib */,
+				8477238B1FEB7D0D003475DA /* UISwitchCell.h */,
+				8477238C1FEB7D0D003475DA /* UISwitchCell.m */,
+				8477238D1FEB7D0D003475DA /* UISwitchCell.xib */,
+				847723851FEB7CFA003475DA /* UITextFieldCell.h */,
+				847723861FEB7CFA003475DA /* UITextFieldCell.m */,
+				847723871FEB7CFA003475DA /* UITextFieldCell.xib */,
+			);
+			path = UItableViewCells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -239,6 +263,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				847723821FEB7CDE003475DA /* UILabelCell.h in Headers */,
+				847D25CC1FECA8EC00995D42 /* ExceptionHandler.h in Headers */,
 				8477236E1FEB6E43003475DA /* UIImage+Extension.h in Headers */,
 				847723D31FEBC561003475DA /* UICellProtocol.h in Headers */,
 				847723741FEB7B06003475DA /* UIFont+Extension.h in Headers */,
@@ -252,6 +277,7 @@
 				847723CF1FEBC474003475DA /* UIBaseCell.h in Headers */,
 				847723CB1FEBC441003475DA /* UITableViewCell+Extension.h in Headers */,
 				847723941FEB7D38003475DA /* UIImageViewCell.h in Headers */,
+				847D25D51FECBD9200995D42 /* UICollectionView+Extension.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -338,6 +364,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847D25D11FECB08000995D42 /* UIImageViewCell.xib in Resources */,
+				847D25D01FECB07C00995D42 /* UISwitchCell.xib in Resources */,
+				847D25CF1FECB07500995D42 /* UITextFieldCell.xib in Resources */,
+				847D25CE1FECB06B00995D42 /* UILabelCell.xib in Resources */,
 				8477234D1FEB620A003475DA /* LaunchScreen.storyboard in Resources */,
 				8477234A1FEB620A003475DA /* Assets.xcassets in Resources */,
 				847723481FEB620A003475DA /* Main.storyboard in Resources */,
@@ -372,6 +402,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847D25CD1FECA8EC00995D42 /* ExceptionHandler.m in Sources */,
 				8477237D1FEB7C18003475DA /* UITableView+Extension.m in Sources */,
 				8477238F1FEB7D0D003475DA /* UISwitchCell.m in Sources */,
 				8477236B1FEB6278003475DA /* UIButton+Extension.m in Sources */,
@@ -383,6 +414,7 @@
 				847723D01FEBC474003475DA /* UIBaseCell.m in Sources */,
 				847723AE1FEB98B3003475DA /* UIAppPush.m in Sources */,
 				847723951FEB7D38003475DA /* UIImageViewCell.m in Sources */,
+				847D25D61FECBD9200995D42 /* UICollectionView+Extension.m in Sources */,
 				847723791FEB7BAD003475DA /* UIColor+Extension.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

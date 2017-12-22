@@ -18,5 +18,9 @@
 
 #import "UIBaseCell.h"
 #import "UILabelCell.h"
+#import "UITextFieldCell.h"
+
+
+#import "ExceptionHandler.h"
 
 #endif /* Header_h */

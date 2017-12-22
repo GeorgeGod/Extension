@@ -1,14 +1,14 @@
 //
-//  UIBaseCell.m
+//  UIImageViewCell.m
 //  Extension
 //
 //  Created by admin on 2017/12/21.
 //  Copyright © 2017年 admin. All rights reserved.
 //
 
-#import "UIBaseCell.h"
+#import "UIImageViewCell.h"
 
-@implementation UIBaseCell
+@implementation UIImageViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -22,9 +22,7 @@
 }
 
 -(void)assignCellWithData:(id)data {
-    
+    NSLog(@"ss:%@", data);
 }
--(void)assignCellWithData:(id)data indexPath:(NSIndexPath *)indexPath {
-    
-}
+
 @end

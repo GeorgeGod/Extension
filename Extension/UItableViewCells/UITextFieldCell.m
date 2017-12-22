@@ -1,14 +1,14 @@
 //
-//  UISwitchCell.m
+//  UITextFieldCell.m
 //  Extension
 //
 //  Created by admin on 2017/12/21.
 //  Copyright © 2017年 admin. All rights reserved.
 //
 
-#import "UISwitchCell.h"
+#import "UITextFieldCell.h"
 
-@implementation UISwitchCell
+@implementation UITextFieldCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
@@ -19,6 +19,10 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
+}
+
+-(void)assignCellWithData:(id)data {
+    NSLog(@"ss:%@", data);
 }
 
 @end
