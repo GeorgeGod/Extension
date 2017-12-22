@@ -10,4 +10,16 @@
 
 @implementation UIImageView (Extension)
 
+-(UIImageView *(^)(BOOL))InteractionEnabled {
+    return ^(BOOL enable) {
+        self.userInteractionEnabled = enable;
+        return self;
+    };
+}
+//-(UIImageView *(^)(NSString *))Image {
+//    return ^(NSString *name) {
+//        return [[UIImageView alloc] initWithImage:[UIImage imageNamed:name]];
+//    };
+//}
+
 @end

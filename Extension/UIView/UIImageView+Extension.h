@@ -10,4 +10,10 @@
 
 @interface UIImageView (Extension)
 
+//+(instancetype)image
+
+//@property (nonatomic, copy , readonly) UIImageView *(^Image)(NSString *image);
+@property (nonatomic, copy , readonly) UIImageView *(^InteractionEnabled)(BOOL enable);
+//@property (nonatomic, copy , readonly) UIImageView *(^Image)(NSString *name);
+
 @end

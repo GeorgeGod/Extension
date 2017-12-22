@@ -10,12 +10,12 @@
 
 @interface UITextField (Extension)
 
-@property (nonatomic, copy , readonly) UITextField *(^atext)(NSString *text);
-@property (nonatomic, copy , readonly) UITextField *(^color)(NSString *color);
-@property (nonatomic, copy , readonly) UITextField *(^font)(UIFont *font);
-@property (nonatomic, copy , readonly) UITextField *(^align)(NSTextAlignment align);
-@property (nonatomic, copy , readonly) UITextField *(^holder)(NSString *placeholder);
-@property (nonatomic, copy , readonly) UITextField *(^adelegate)(id object);
-@property (nonatomic, copy , readonly) UITextField *(^aclearsOnBeginEditing)(BOOL clear);
+@property (nonatomic, copy , readonly) UITextField *(^Text)(NSString *text);
+@property (nonatomic, copy , readonly) UITextField *(^Color)(NSString *color);
+@property (nonatomic, copy , readonly) UITextField *(^Font)(UIFont *font);
+@property (nonatomic, copy , readonly) UITextField *(^Align)(NSTextAlignment align);
+@property (nonatomic, copy , readonly) UITextField *(^Holder)(NSString *placeholder);
+@property (nonatomic, copy , readonly) UITextField *(^Delegate)(id object);
+@property (nonatomic, copy , readonly) UITextField *(^ClearsOnBeginEditing)(BOOL clear);
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation UIView (Extension)
 
--(UIView *(^)(CGRect))frame {
+-(UIView *(^)(CGRect))Frame {
     return ^(CGRect frame) {
         [self setFrame:frame];
         return self;

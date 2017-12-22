@@ -39,4 +39,14 @@
     };
 }
 
+-(UIImage *(^)(void))image {
+    return ^() {
+        return [UIImage imageNamed:self];
+    };
+}
+-(UIImageView *(^)(void))imageView {
+    return ^() {
+        return [[UIImageView alloc] initWithImage:[UIImage imageNamed:self]];
+    };
+}
 @end

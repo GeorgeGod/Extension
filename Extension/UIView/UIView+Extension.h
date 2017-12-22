@@ -10,7 +10,7 @@
 
 @interface UIView (Extension)
 
-@property (nonatomic, copy , readonly) UIView *(^frame)(CGRect rect);
+@property (nonatomic, copy , readonly) UIView *(^Frame)(CGRect rect);
 //@property (nonatomic, copy , readonly) UIView *(^mas)(CGRect rect);
 
 @end

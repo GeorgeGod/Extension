@@ -26,9 +26,10 @@
     NSURL *url = @"www.baidu.com".url();
     
     UITextField *tf = [UITextField new];
-    tf.atext(@"hello").adelegate(self).holder(@"").enable(YES);
-//    tf.ltext(@"hello").holder(@"");
-//    tf.text
+    [UITextField new].Text(@"").Holder(@"").Delegate(self).Enable(YES);
+    
+    @"".image();
+    @"".imageView();
     
 //    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 44)];
 //    btn.backgroundColor = [UIColor redColor];

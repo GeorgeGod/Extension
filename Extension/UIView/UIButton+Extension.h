@@ -10,4 +10,9 @@
 
 @interface UIButton (Extension)
 
+@property (nonatomic, copy , readonly) UIButton *(^Text)(NSString *text);
+@property (nonatomic, copy , readonly) UIButton *(^Color)(NSString *color);
+@property (nonatomic, copy , readonly) UIButton *(^Font)(UIFont *font);
+@property (nonatomic, copy , readonly) UIButton *(^Enable)(BOOL enable);
+
 @end

@@ -6,7 +6,7 @@
 //  Copyright © 2017年 admin. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @interface NSString (Extension)
 
@@ -18,4 +18,9 @@
 @property (nonatomic, copy , readonly) NSDate *(^date)(NSString *dtformatter);
 @property (nonatomic, copy , readonly) NSTimeInterval(^timestamp)(NSString *dtformatter);
 
+/* 字符串转UIImage */
+@property (nonatomic, copy , readonly) UIImage *(^image)(void);
+
+/* 字符串转UIImageView */
+@property (nonatomic, copy , readonly) UIImageView *(^imageView)(void);
 @end

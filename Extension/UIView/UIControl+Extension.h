@@ -10,12 +10,12 @@
 
 @interface UIControl (Extension)
 
-@property (nonatomic, copy , readonly) UIControl *(^enable)(BOOL enable);
-@property (nonatomic, copy , readonly) UIControl *(^selected)(BOOL selected);
-@property (nonatomic, copy , readonly) UIControl *(^highlighted)(BOOL highlighted);
+@property (nonatomic, copy , readonly) UIControl *(^Enable)(BOOL enable);
+@property (nonatomic, copy , readonly) UIControl *(^Selected)(BOOL selected);
+@property (nonatomic, copy , readonly) UIControl *(^Highlighted)(BOOL highlighted);
 
-@property (nonatomic, copy , readonly) UIControl *(^switchEnable)(void);
-@property (nonatomic, copy , readonly) UIControl *(^switchSelected)(void);
-@property (nonatomic, copy , readonly) UIControl *(^switchHighlighted)(void);
+@property (nonatomic, copy , readonly) UIControl *(^SwitchEnable)(void);
+@property (nonatomic, copy , readonly) UIControl *(^SwitchSelected)(void);
+@property (nonatomic, copy , readonly) UIControl *(^SwitchHighlighted)(void);
 
 @end
