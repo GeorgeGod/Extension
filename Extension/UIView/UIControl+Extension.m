@@ -10,41 +10,41 @@
 
 @implementation UIControl (Extension)
 
--(UIControl *(^)(BOOL))enable {
+-(UIControl *(^)(BOOL))Enable {
     return ^(BOOL enable) {
         self.enabled = enable;
         return self;
     };
 }
 
--(UIControl *(^)(BOOL))selected {
+-(UIControl *(^)(BOOL))Selected {
     return ^(BOOL selected) {
         self.selected = selected;
         return self;
     };
 }
--(UIControl *(^)(BOOL))highlighted {
+-(UIControl *(^)(BOOL))Highlighted {
     return ^(BOOL highlighted) {
         self.highlighted = highlighted;
         return self;
     };
 }
 
--(UIControl *(^)(void))switchEnable {
+-(UIControl *(^)(void))SwitchEnable {
     return ^() {
         self.enabled = !self.isEnabled;
         return self;
     };
 }
 
--(UIControl *(^)(void))switchSelected {
+-(UIControl *(^)(void))SwitchSelected {
     return ^() {
         self.selected = !self.isSelected;
         return self;
     };
 }
 
--(UIControl *(^)(void))switchHighlighted {
+-(UIControl *(^)(void))SwitchHighlighted {
     return ^() {
         self.highlighted = !self.isHighlighted;
         return self;

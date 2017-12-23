@@ -10,7 +10,7 @@
 #import "Extension.h"
 #import "UITextField+Extension.h"
 
-@interface ViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource, UICollectionViewDataSource, UICollectionViewDelegate, UINavigationBarDelegate>
 
 @end
 
@@ -21,6 +21,25 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.view.backgroundColor = [UIColor lightGrayColor];
     
+    self.title = @"主页";
+    self.leftBarButtonItem(@"back_gray".image(), ^(UIBarButtonItem *item) {
+        NSLog(@"======aa");
+//        [self.navigationController popViewControllerAnimated:YES];
+        self.popCtrl();
+    });
+    self.rightBarButtonItem(@"右", ^(UIBarButtonItem *item) {
+        NSLog(@"======bb");
+        
+//        [self.navigationController pushViewController:[ViewController new] animated:YES];
+        self.pushCtrl([ViewController new]);
+    });
+//    self.navigationController.navigationBar.delegate = self;
+    
+    NSArray *arr = @[
+                     [VEntity VEntity:"name" detail:"张三" holder:"xin"].showArrow(YES),
+                     ];
+//    self.rightBarButtonItem(@"右").
+    
 //    double res = @(32).scale();
     
     NSURL *url = @"www.baidu.com".url();
@@ -30,6 +49,9 @@
     
     @"".image();
     @"".imageView();
+    
+    self.judgeCode(@{});
+    
     
 //    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 44)];
 //    btn.backgroundColor = [UIColor redColor];
@@ -60,6 +82,14 @@
 //    [col registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"UICollectionViewCell"];
     [self.view addSubview:col];
 }
+
+//-(void)leftBarButtonItemAction:(UIBarButtonItem *)leftBarButtonItem {
+//    NSLog(@"aaCC");
+//}
+
+//- (BOOL)navigationBar:(UINavigationBar *)navigationBar shouldPushItem:(UINavigationItem *)item {
+//    return YES;
+//}
 
 //-(void)btnAction:(UIButton *)sender {
 //    UIColor *color=sender.backColor;

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "Extension.h"
-
+#import "ViewController.h"
 @interface AppDelegate ()
 
 @end
@@ -19,6 +19,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     InstallUncaughtExceptionHandler();
+    
+    UINavigationController *naviCtrl = [[UINavigationController alloc] initWithRootViewController:[ViewController new]];
+    [naviCtrl display];
+    self.window.backgroundColor = [UIColor greenColor];
+    self.window.rootViewController = naviCtrl;
     return YES;
 }
 

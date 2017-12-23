@@ -45,13 +45,13 @@ const NSInteger ExceptionHandlerReportAddressCount = 5;
     return backtrace;
 }
 
-- (void)alertView:(UIAlertView *)anAlertView clickedButtonAtIndex:(NSInteger)anIndex
-{
-    if (anIndex == 0)
-    {
-        dismissed = YES;
-    }
-}
+//- (void)alertView:(UIAlertView *)anAlertView clickedButtonAtIndex:(NSInteger)anIndex
+//{
+//    if (anIndex == 0)
+//    {
+//        dismissed = YES;
+//    }
+//}
 
 - (void)validateAndSaveCriticalApplicationData
 {
@@ -61,18 +61,17 @@ const NSInteger ExceptionHandlerReportAddressCount = 5;
 {
     [self validateAndSaveCriticalApplicationData];
     NSLog(@"-------%@", [exception reason]);
-    UIAlertView *alert =
-    [[UIAlertView alloc]
-     initWithTitle:NSLocalizedString(@"Unhandled exception", nil)
-     message:[NSString stringWithFormat:NSLocalizedString(
-                                                          @"You can try to continue but the application may be unstable.\n\n"
-                                                          @"Debug details follow:\n%@\n%@", nil),
-              [exception reason],
-              [[exception userInfo] objectForKey:ExceptionHandlerAddressesKey]]
-     delegate:self
-     cancelButtonTitle:NSLocalizedString(@"Quit", nil)
-     otherButtonTitles:NSLocalizedString(@"Continue", nil), nil];
-    [alert show];
+//    [self showAlert:[exception reason]];
+//
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Unhandled exception", nil) message:[NSString stringWithFormat:NSLocalizedString(
+//                                                          @"You can try to continue but the application may be unstable.\n\n"
+//                                                          @"Debug details follow:\n%@\n%@", nil),
+//              [exception reason],
+//              [[exception userInfo] objectForKey:ExceptionHandlerAddressesKey]]
+//     delegate:self
+//     cancelButtonTitle:NSLocalizedString(@"Quit", nil)
+//     otherButtonTitles:NSLocalizedString(@"Continue", nil), nil];
+//    [alert show];
     
 //    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
@@ -102,6 +101,16 @@ const NSInteger ExceptionHandlerReportAddressCount = 5;
     {
         [exception raise];
     }
+}
+
+-(void)showAlert:(NSString *)msg {
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"错误提示 " message:msg preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *sure = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        dismissed = YES;
+    }];
+    [alert addAction:sure];
+    UIViewController *ctrl=[UIApplication sharedApplication].keyWindow.rootViewController;
+    [ctrl presentViewController:alert animated:YES completion:nil];
 }
 
 @end
@@ -169,7 +178,6 @@ void InstallUncaughtExceptionHandler(void)
     signal(SIGBUS, SignalHandler);
     signal(SIGPIPE, SignalHandler);
 }
-
 
 /*
 swift版本：

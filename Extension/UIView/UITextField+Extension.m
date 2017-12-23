@@ -11,46 +11,46 @@
 
 @implementation UITextField (Extension)
 
--(UITextField *(^)(NSString *))atext {
+-(UITextField *(^)(NSString *))Text {
     return ^(NSString *text) {
         self.text = text;
         return self;
     };
 }
 
--(UITextField *(^)(NSString *))color {
+-(UITextField *(^)(NSString *))Color {
     return ^(NSString *color) {
         self.textColor = [UIColor colorWithHexStr:color];
         return self;
     };
 }
 
--(UITextField *(^)(UIFont *))font {
+-(UITextField *(^)(UIFont *))Font {
     return ^(UIFont *font) {
         self.font = font;
         return self;
     };
 }
 
--(UITextField *(^)(NSTextAlignment))align {
+-(UITextField *(^)(NSTextAlignment))Align {
     return ^(NSTextAlignment align) {
         self.textAlignment = align;
         return self;
     };
 }
--(UITextField *(^)(NSString *))holder {
+-(UITextField *(^)(NSString *))Holder {
     return ^(NSString *placeholder) {
         self.placeholder = placeholder;
         return self;
     };
 }
--(UITextField *(^)(id))adelegate {
+-(UITextField *(^)(id))Delegate {
     return ^(id object) {
         self.delegate = object;
         return self;
     };
 }
--(UITextField *(^)(BOOL))aclearsOnBeginEditing {
+-(UITextField *(^)(BOOL))ClearsOnBeginEditing {
     return ^(BOOL clear) {
         self.clearsOnBeginEditing = clear;
         return self;
