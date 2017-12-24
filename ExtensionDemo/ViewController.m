@@ -36,7 +36,7 @@
 //    self.navigationController.navigationBar.delegate = self;
     
     NSArray *arr = @[
-                     [VEntity VEntity:"name" detail:"张三" holder:"xin"].showArrow(YES),
+                     [VEntity VEntity:"name" detail:"张三" holder:"xin"].showArrow(YES).showToggle(YES),
                      ];
 //    self.rightBarButtonItem(@"右").
     
@@ -52,6 +52,21 @@
     
     self.judgeCode(@{});
     
+//    [Http new].post(@"").params(@{}).complete(^(NSDictionary *json) {
+//
+//    }, ^(NSError *error) {
+//
+//    });
+
+    
+    [Http shareHttps].post(@"").params(@{}).pictures(@[]).complete(^(NSDictionary *json) {
+        
+        NSLog(@"sss");
+    }, ^(NSError *error) {
+        NSLog(@"ddd");
+    }, ^(NSString *errmsg) {
+        NSLog(@"aaa:%@", errmsg);
+    });
     
 //    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 44)];
 //    btn.backgroundColor = [UIColor redColor];

@@ -25,6 +25,8 @@
 		5E3AB43D1FEE1C6600F5CAE0 /* VEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3AB43B1FEE1C6600F5CAE0 /* VEntity.m */; };
 		5E3AB4401FEE1D8100F5CAE0 /* UIView+Frame.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E3AB43E1FEE1D8100F5CAE0 /* UIView+Frame.h */; };
 		5E3AB4411FEE1D8100F5CAE0 /* UIView+Frame.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3AB43F1FEE1D8100F5CAE0 /* UIView+Frame.m */; };
+		5E3AB4451FEF5EC500F5CAE0 /* Http.h in Headers */ = {isa = PBXBuildFile; fileRef = 5E3AB4431FEF5EC500F5CAE0 /* Http.h */; };
+		5E3AB4461FEF5EC500F5CAE0 /* Http.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E3AB4441FEF5EC500F5CAE0 /* Http.m */; };
 		847723421FEB620A003475DA /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 847723411FEB620A003475DA /* AppDelegate.m */; };
 		847723451FEB620A003475DA /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 847723441FEB620A003475DA /* ViewController.m */; };
 		847723481FEB620A003475DA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 847723461FEB620A003475DA /* Main.storyboard */; };
@@ -136,6 +138,8 @@
 		5E3AB43B1FEE1C6600F5CAE0 /* VEntity.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VEntity.m; sourceTree = "<group>"; };
 		5E3AB43E1FEE1D8100F5CAE0 /* UIView+Frame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+Frame.h"; sourceTree = "<group>"; };
 		5E3AB43F1FEE1D8100F5CAE0 /* UIView+Frame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIView+Frame.m"; sourceTree = "<group>"; };
+		5E3AB4431FEF5EC500F5CAE0 /* Http.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Http.h; sourceTree = "<group>"; };
+		5E3AB4441FEF5EC500F5CAE0 /* Http.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Http.m; sourceTree = "<group>"; };
 		8477233D1FEB620A003475DA /* ExtensionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ExtensionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		847723401FEB620A003475DA /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		847723411FEB620A003475DA /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -289,6 +293,15 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		5E3AB4421FEF5E9800F5CAE0 /* Http */ = {
+			isa = PBXGroup;
+			children = (
+				5E3AB4431FEF5EC500F5CAE0 /* Http.h */,
+				5E3AB4441FEF5EC500F5CAE0 /* Http.m */,
+			);
+			path = Http;
+			sourceTree = "<group>";
+		};
 		847723341FEB620A003475DA = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +342,7 @@
 			isa = PBXGroup;
 			children = (
 				847723701FEB7070003475DA /* Extension.h */,
+				5E3AB4421FEF5E9800F5CAE0 /* Http */,
 				5E3AB4391FEE1C2A00F5CAE0 /* Entity */,
 				5E3AB4381FEE1B2000F5CAE0 /* Entry */,
 				5E3AB42B1FEE1AC800F5CAE0 /* PickerView */,
@@ -432,6 +446,7 @@
 				8477236A1FEB6278003475DA /* UIButton+Extension.h in Headers */,
 				847D26741FED0EFC00995D42 /* NSDate+Extension.h in Headers */,
 				847D26851FED129700995D42 /* UIButton+Extension.h in Headers */,
+				5E3AB4451FEF5EC500F5CAE0 /* Http.h in Headers */,
 				847723881FEB7CFA003475DA /* UITextFieldCell.h in Headers */,
 				5E3AB4201FEDFAB700F5CAE0 /* UIViewController+Extension.h in Headers */,
 				847D26891FED12E700995D42 /* UIImageView+Extension.h in Headers */,
@@ -578,6 +593,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				847D25CD1FECA8EC00995D42 /* ExceptionHandler.m in Sources */,
+				5E3AB4461FEF5EC500F5CAE0 /* Http.m in Sources */,
 				5E3AB4411FEE1D8100F5CAE0 /* UIView+Frame.m in Sources */,
 				8477237D1FEB7C18003475DA /* UITableView+Extension.m in Sources */,
 				5E3AB41D1FED632B00F5CAE0 /* NSObject+Extension.m in Sources */,

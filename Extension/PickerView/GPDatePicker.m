@@ -26,7 +26,7 @@
 }
 
 +(instancetype)DatePicker {
-    GPDatePicker *picker = [[[NSBundle mainBundle] loadNibNamed:@"GPDatePicker" owner:self options:nil] lastObject];
+    GPDatePicker *picker = [[[NSBundle mainBundle] loadNibNamed:@"GPDatePicker" owner:nil options:nil] lastObject];
     
     //@"yyyy年MM月dd日(EEEE)
     picker.dateFormat = @"yyyy年MM月dd日";

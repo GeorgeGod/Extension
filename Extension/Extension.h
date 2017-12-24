@@ -42,5 +42,6 @@
 
 
 #import "VEntity.h"
+#import "Http.h"
 
 #endif /* Header_h */

@@ -28,7 +28,7 @@
 }
 
 +(instancetype)PickerView {
-    GPPickerView *picker = [[[NSBundle mainBundle] loadNibNamed:@"GPPickerView" owner:self options:nil] lastObject];
+    GPPickerView *picker = [[[NSBundle mainBundle] loadNibNamed:@"GPPickerView" owner:nil options:nil] lastObject];
     
     [picker.background addTarget:picker action:@selector(cancelButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     
