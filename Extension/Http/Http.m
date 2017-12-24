@@ -55,11 +55,16 @@
         self.httpSuccess = success;
         self.httpFailure = failure;
         self.httpFinshed = finshed;
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            if (self.httpFinshed) {
-                self.httpFinshed(@"请求超时了");
-            }
-        });
+        //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        //            if (self.httpFinshed) {
+        //                self.httpFinshed(@"请求超时了");
+        //            }
+        //        });
+        if (self.httpType == RequestTypeGet) {
+            [self getRequest];
+        } else {
+            [self postRequest];
+        }
         return self;
     };
 }
@@ -111,4 +116,124 @@ static Http *_instance;
     http.httpUrl = url;
 }
 
+
+
+
+-(void)getRequest; // WithParams:(HttpParams *)params success:(successBlock)success failure:(failureBlock)failure
+{
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@", self.httpUrl, self.httpUri];
+    
+    NSMutableString *mutableUrl = [[NSMutableString alloc] initWithString:url];
+    
+    NSDictionary *parameters = self.httpParams; //params.headParams;
+    if ([parameters allKeys]) {
+        [mutableUrl appendString:@"?"];
+        for (id key in parameters) {
+            NSString *value = [[parameters objectForKey:key] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+            [mutableUrl appendString:[NSString stringWithFormat:@"%@=%@&", key, value]];
+        }
+    }
+    NSString *urlEnCode = [[mutableUrl substringToIndex:mutableUrl.length - 1] stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]];
+    NSURLRequest *urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:urlEnCode]];
+    NSURLSession *urlSession = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [urlSession dataTaskWithRequest:urlRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                if (self.httpFailure) {
+                    self.httpFailure(error);
+                }
+            } else {
+                if (!data) {
+                    if (self.httpFinshed) {
+                        self.httpFinshed(@"请求数据错误");
+                    }
+                } else {
+                    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                    if ([dic[@"errcode"] intValue] == 0) {
+                        if (self.httpSuccess) {
+                            self.httpSuccess(dic);
+                        }
+                    } else {
+                        if (self.httpFinshed) {
+                            self.httpFinshed(dic[@"errmsg"]);
+                        }
+                    }
+                }
+            }
+        });
+    }];
+    [dataTask resume];
+}
+
+-(void)postRequest //WithParams:(HttpParams *)params success:(successBlock)success failure:(failureBlock)failure
+{
+    
+    NSString *url = [NSString stringWithFormat:@"%@%@", self.httpUrl, self.httpUri];
+    
+    //在请求URL中添加一个token
+    //    if (GVUSERINFO.accessToken.length > 0) {
+    //        url = [url stringByAppendingFormat:@"?token=%@", GVUSERINFO.accessToken];
+    //    }
+    //    NSURL *nsurl = [NSURL URLWithString:url];
+    //    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:nsurl];
+    //如果想要设置网络超时的时间的话，可以使用下面的方法：
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:10];
+    
+    //设置请求类型
+    request.HTTPMethod = @"POST";
+    
+    //把参数放到请求体内
+    NSString *postStr = [Http parseParams:self.httpParams]; //params.bodyParams];
+    request.HTTPBody = [postStr dataUsingEncoding:NSUTF8StringEncoding];
+    
+    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionDataTask *dataTask = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (error) {
+                if (self.httpFailure) {
+                    self.httpFailure(error);
+                }
+            } else {
+                //请求成功
+                if (data == nil) {
+                    if (self.httpFinshed) {
+                        self.httpFinshed(@"请求数据错误");
+                    }
+                } else {
+                    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                    
+                    if ([dic[@"errcode"] intValue] == 0) {
+                        if (self.httpSuccess) {
+                            self.httpSuccess(dic);
+                        }
+                    } else {
+                        //可能token过期了
+                        //                    [Http getTokenThenRequest:params success:success failure:failure];
+                        if (self.httpFinshed) {
+                            self.httpFinshed(dic[@"errmsg"]);
+                        }
+                    }
+                }
+            }
+        });
+    }];
+    [dataTask resume];  //开始请求
+}
+
+//拼接参数
++ (NSString *)parseParams:(NSDictionary *)params {
+    
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] initWithDictionary:params];
+    NSString *keyValueFormat;
+    NSMutableString *result = [NSMutableString new];
+    NSEnumerator *keyEnum = [parameters keyEnumerator];
+    id key;
+    while (key = [keyEnum nextObject]) {
+        keyValueFormat = [NSString stringWithFormat:@"%@=%@&", key, [params valueForKey:key]];
+        [result appendString:keyValueFormat];
+    }
+    return result;
+}
 @end
