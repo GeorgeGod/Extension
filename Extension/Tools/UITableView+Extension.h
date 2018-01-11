@@ -10,7 +10,7 @@
 
 @interface UITableView (Extension)
 
-+(instancetype)obtainTableViewWithCtrl:(UIViewController *)ctrl;
++(__kindof instancetype)obtainTableViewWithCtrl:(UIViewController *)ctrl;
 
 /**
  获取不带XIB的Cell
@@ -18,7 +18,7 @@
  @param clazz Cell的类名
  @return 返回Cell对象
  */
--(UITableViewCell *)obtainCell:(Class)clazz;
+-(__kindof UITableViewCell *)obtainCell:(Class)clazz;
 
 
 /**
@@ -27,6 +27,6 @@
  @param clazz Cell的类名
  @return 返回Cell对象
  */
--(UITableViewCell *)obtainXibCell:(Class)clazz;
+-(__kindof UITableViewCell *)obtainXibCell:(Class)clazz;
 
 @end

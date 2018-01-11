@@ -31,6 +31,7 @@
 
 #import "GPPickerView.h"
 #import "GPDatePicker.h"
+#import "UIMessage.h"
 
 #import "UIControl+Extension.h"
 #import "UIImageView+Extension.h"
@@ -43,5 +44,6 @@
 
 #import "VEntity.h"
 #import "Http.h"
+#import "HttpClient.h"
 
 #endif /* Header_h */

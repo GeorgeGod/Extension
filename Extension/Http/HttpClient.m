@@ -1,13 +1,14 @@
 //
-//  Http.m
+//  HttpClient.m
 //  Extension
 //
-//  Created by 虞嘉伟 on 2017/12/24.
+//  Created by admin on 2017/12/26.
 //  Copyright © 2017年 admin. All rights reserved.
 //
 
-#import "Http.h"
-@interface Http()
+#import "HttpClient.h"
+
+@interface HttpClient()
 @property (nonatomic, copy  ) NSString *httpUrl;
 @property (nonatomic, copy  ) NSString *httpUri;
 @property (nonatomic, assign) RequestType httpType;
@@ -18,53 +19,36 @@
 @property (nonatomic, copy  ) FinshedBlock httpFinshed;
 @end
 
-@implementation Http
+@implementation HttpClient
 
--(Http *(^)(NSString *))get {
-    return ^(NSString *uri) {
-        self.httpUri = uri;
-        self.httpType = RequestTypeGet;
-        return self;
-    };
-}
-
--(Http *(^)(NSString *))post {
-    return ^(NSString *uri) {
-        self.httpUri = uri;
-        self.httpType = RequestTypePost;
-        return self;
-    };
-}
-
--(Http *(^)(NSDictionary *))params {
-    return ^(NSDictionary *params) {
-        self.httpParams = params;
-        return self;
-    };
-}
-
--(Http *(^)(NSArray *))pictures {
+-(HttpClient *(^)(NSArray *))pictures {
     return ^(NSArray *pictures) {
         self.httpPictures = pictures;
         return self;
     };
 }
 
--(Http *(^)(SuccessBlock, FailureBlock, FinshedBlock))complete {
-    return ^(SuccessBlock success, FailureBlock failure, FinshedBlock finshed) {
+-(HttpClient *(^)(NSString *, NSDictionary *, SuccessBlock, FailureBlock, FinshedBlock))getRequest {
+    return ^(NSString *uri, NSDictionary *params, SuccessBlock success, FailureBlock failure, FinshedBlock finshed) {
+        self.httpType = RequestTypeGet;
+        self.httpUri = uri;
+        self.httpParams = params;
         self.httpSuccess = success;
         self.httpFailure = failure;
         self.httpFinshed = finshed;
-        //        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(6 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        //            if (self.httpFinshed) {
-        //                self.httpFinshed(@"请求超时了");
-        //            }
-        //        });
-        if (self.httpType == RequestTypeGet) {
-            [self getReq];
-        } else {
-            [self postReq];
-        }
+        [self beginGetRequest];
+        return self;
+    };
+}
+-(HttpClient *(^)(NSString *, NSDictionary *, SuccessBlock, FailureBlock, FinshedBlock))postRequest {
+    return ^(NSString *uri, NSDictionary *params, SuccessBlock success, FailureBlock failure, FinshedBlock finshed) {
+        self.httpType = RequestTypePost;
+        self.httpUri = uri;
+        self.httpParams = params;
+        self.httpSuccess = success;
+        self.httpFailure = failure;
+        self.httpFinshed = finshed;
+        [self beginPostRequest];
         return self;
     };
 }
@@ -78,16 +62,8 @@
  4 严谨起见，重写-copyWithZone方法和-MutableCopyWithZone方法
  */
 // 创建静态对象 防止外部访问
-static Http *_instance;
+static HttpClient *_instance;
 +(instancetype)allocWithZone:(struct _NSZone *)zone {
-    //    @synchronized (self) {
-    //        // 为了防止多线程同时访问对象，造成多次分配内存空间，所以要加上线程锁
-    //        if (_instance == nil) {
-    //            _instance = [super allocWithZone:zone];
-    //        }
-    //        return _instance;
-    //    }
-    // 也可以使用一次性代码
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         if (_instance == nil) {
@@ -98,7 +74,7 @@ static Http *_instance;
 }
 // 为了使实例易于外界访问 我们一般提供一个类方法
 // 类方法命名规范 share类名|default类名|类名
-+(instancetype)shareHttps {
++(instancetype)shareHttpClient {
     //return _instance;
     // 最好用self 用Tools他的子类调用时会出现错误
     return [[self alloc]init];
@@ -111,17 +87,16 @@ static Http *_instance;
     return _instance;
 }
 
-+(void)HttpURL:(NSString *)url {
-    Http *http = [Http shareHttps];
++(void)HttpClientURL:(NSString *)url {
+    HttpClient *http = [HttpClient shareHttpClient];
     http.httpUrl = url;
 }
 
 
 
 
--(void)getReq; // WithParams:(HttpParams *)params success:(successBlock)success failure:(failureBlock)failure
+-(void)beginGetRequest
 {
-    
     NSString *url = [NSString stringWithFormat:@"%@%@", self.httpUrl, self.httpUri];
     
     NSMutableString *mutableUrl = [[NSMutableString alloc] initWithString:url];
@@ -166,7 +141,7 @@ static Http *_instance;
     [dataTask resume];
 }
 
--(void)postReq //WithParams:(HttpParams *)params success:(successBlock)success failure:(failureBlock)failure
+-(void)beginPostRequest
 {
     
     NSString *url = [NSString stringWithFormat:@"%@%@", self.httpUrl, self.httpUri];
@@ -184,7 +159,7 @@ static Http *_instance;
     request.HTTPMethod = @"POST";
     
     //把参数放到请求体内
-    NSString *postStr = [Http parseParams:self.httpParams]; //params.bodyParams];
+    NSString *postStr = [HttpClient parseParams:self.httpParams];
     request.HTTPBody = [postStr dataUsingEncoding:NSUTF8StringEncoding];
     
     NSURLSession *session = [NSURLSession sharedSession];
@@ -219,7 +194,8 @@ static Http *_instance;
             }
         });
     }];
-    [dataTask resume];  //开始请求
+    //开始请求
+    [dataTask resume];
 }
 
 //拼接参数

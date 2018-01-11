@@ -11,7 +11,7 @@
 @implementation UICollectionView (Extension)
 
 
-+(instancetype)obtainCollectionViewWithCtrl:(UIViewController *)ctrl {
++(__kindof instancetype)obtainCollectionViewWithCtrl:(UIViewController *)ctrl {
     UICollectionViewFlowLayout *flow = [UICollectionViewFlowLayout new];
     flow.itemSize = CGSizeMake(200, 200);
     flow.headerReferenceSize = CGSizeZero;
@@ -46,7 +46,7 @@
  @param indexPath indexPath
  @return 返回复用视图
  */
--(UICollectionReusableView *)obtainReusableViewOfKind:(NSString *)kind identifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath {
+-(__kindof UICollectionReusableView *)obtainReusableViewOfKind:(NSString *)kind identifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath {
     return [self dequeueReusableSupplementaryViewOfKind:kind withReuseIdentifier:identifier forIndexPath:indexPath];
 }
 
@@ -58,7 +58,7 @@
  @param indexPath indexPath
  @return 返回复用视图
  */
--(UICollectionReusableView *)obtainHeaderWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath {
+-(__kindof UICollectionReusableView *)obtainHeaderWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath {
     return [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:identifier forIndexPath:indexPath];
 }
 
@@ -70,7 +70,7 @@
  @param indexPath indexPath
  @return 返回复用视图
  */
--(UICollectionReusableView *)obtainFooterWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath {
+-(__kindof UICollectionReusableView *)obtainFooterWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath {
     return [self dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:identifier forIndexPath:indexPath];
 }
 
@@ -115,7 +115,7 @@
 @param indexPath indexPath
 @return 返回Cell对象
 */
--(UICollectionViewCell *)obtainCell:(Class)clazz forIndexPath:(NSIndexPath *)indexPath {
+-(__kindof UICollectionViewCell *)obtainCell:(Class)clazz forIndexPath:(NSIndexPath *)indexPath {
     return [self dequeueReusableCellWithReuseIdentifier:NSStringFromClass(clazz) forIndexPath:indexPath];
 }
 
@@ -127,7 +127,7 @@
  @param indexPath indexPath
  @return 返回Cell对象
  */
--(UICollectionViewCell *)obtainXibCell:(Class)clazz forIndexPath:(NSIndexPath *)indexPath {
+-(__kindof UICollectionViewCell *)obtainXibCell:(Class)clazz forIndexPath:(NSIndexPath *)indexPath {
     return [self dequeueReusableCellWithReuseIdentifier:NSStringFromClass(clazz) forIndexPath:indexPath];
 }
 

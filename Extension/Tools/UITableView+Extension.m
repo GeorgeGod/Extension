@@ -10,7 +10,7 @@
 
 @implementation UITableView (Extension)
 
-+(instancetype)obtainTableViewWithCtrl:(UIViewController *)ctrl {
++(__kindof instancetype)obtainTableViewWithCtrl:(UIViewController *)ctrl {
     
     UITableView *tb = [[UITableView alloc] initWithFrame:ctrl.view.bounds style:UITableViewStyleGrouped];
     tb.backgroundColor = [UIColor whiteColor];
@@ -22,14 +22,14 @@
     return tb;
 }
 
--(UITableViewCell *)obtainCell:(Class)clazz {
+-(__kindof UITableViewCell *)obtainCell:(Class)clazz {
     UITableViewCell *cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(clazz)];
     if (!cell) {
         cell = [[clazz alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:NSStringFromClass(clazz)];
     }
     return cell;
 }
--(UITableViewCell *)obtainXibCell:(Class)clazz {
+-(__kindof UITableViewCell *)obtainXibCell:(Class)clazz {
     UITableViewCell *cell = [self dequeueReusableCellWithIdentifier:NSStringFromClass(clazz)];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:NSStringFromClass(clazz) owner:nil options:nil] firstObject];

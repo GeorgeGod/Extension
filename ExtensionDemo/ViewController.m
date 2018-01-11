@@ -19,7 +19,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    self.view.backgroundColor = [UIColor lightGrayColor];
+    self.view.backgroundColor = UIColor.randomColor; //[UIColor lightGrayColor];
+    
+    NSString *path = [[NSBundle mainBundle] bundlePath];
+    NSString* File = [[NSBundle mainBundle] pathForResource:@"info" ofType:@"plist"];
+    NSMutableDictionary* dict = [[NSMutableDictionary alloc] initWithContentsOfFile:File];
+    NSLog(@"----0000----:%@", dict);
     
     self.title = @"主页";
     self.leftBarButtonItem(@"back_gray".image(), ^(UIBarButtonItem *item) {
@@ -57,7 +62,8 @@
 //    }, ^(NSError *error) {
 //
 //    });
-
+    
+    [UIMessage showSuccessMessage:@"ssss" Complete:nil];
     
     [Http shareHttps].post(@"").params(@{}).pictures(@[]).complete(^(NSDictionary *json) {
         
@@ -67,6 +73,7 @@
     }, ^(NSString *errmsg) {
         NSLog(@"aaa:%@", errmsg);
     });
+    
     
 //    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 44)];
 //    btn.backgroundColor = [UIColor redColor];

@@ -11,7 +11,7 @@
 @interface UICollectionView (Extension)
 
 
-+(instancetype)obtainCollectionViewWithCtrl:(UIViewController *)ctrl;
++(__kindof instancetype)obtainCollectionViewWithCtrl:(UIViewController *)ctrl;
 
 
 
@@ -39,7 +39,7 @@
  @param indexPath indexPath
  @return 返回复用视图
  */
--(UICollectionReusableView *)obtainReusableViewOfKind:(NSString *)kind identifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
+-(__kindof UICollectionReusableView *)obtainReusableViewOfKind:(NSString *)kind identifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
 
 
 /**
@@ -49,7 +49,7 @@
  @param indexPath indexPath
  @return 返回复用视图
  */
--(UICollectionReusableView *)obtainHeaderWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
+-(__kindof UICollectionReusableView *)obtainHeaderWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
 
 
 /**
@@ -59,7 +59,7 @@
  @param indexPath indexPath
  @return 返回复用视图
  */
--(UICollectionReusableView *)obtainFooterWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
+-(__kindof UICollectionReusableView *)obtainFooterWithIdentifier:(NSString *)identifier forIndexPath:(NSIndexPath *)indexPath;
 
 /**
  注册一个不带XIB的Cell
@@ -83,7 +83,7 @@
  @param indexPath indexPath
  @return 返回Cell对象
  */
--(UICollectionViewCell *)obtainCell:(Class)clazz forIndexPath:(NSIndexPath *)indexPath;
+-(__kindof UICollectionViewCell *)obtainCell:(Class)clazz forIndexPath:(NSIndexPath *)indexPath;
 
 
 /**
@@ -93,5 +93,5 @@
  @param indexPath indexPath
  @return 返回Cell对象
  */
--(UICollectionViewCell *)obtainXibCell:(Class)clazz forIndexPath:(NSIndexPath *)indexPath;
+-(__kindof UICollectionViewCell *)obtainXibCell:(Class)clazz forIndexPath:(NSIndexPath *)indexPath;
 @end

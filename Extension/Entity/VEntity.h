@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Definition.h"
+#import "GCDExtension.h"
 
 typedef NS_ENUM(NSInteger, UICellType) {
     UICellTypeDefault = 0,
@@ -17,10 +19,10 @@ typedef NS_ENUM(NSInteger, UICellType) {
 };
 
 @interface VEntity : NSObject
-
 @property (nonatomic, copy , readwrite) NSString *title;
 @property (nonatomic, copy , readwrite) NSString *detail;
 @property (nonatomic, copy , readwrite) NSString *holder;
+@property (nonatomic, copy , readwrite) NSString *key;
 @property (nonatomic, assign) UICellType type;
 
 @property (nonatomic, assign) BOOL toggle;

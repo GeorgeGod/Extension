@@ -93,6 +93,17 @@
 		847D268A1FED12E700995D42 /* UIImageView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D26881FED12E700995D42 /* UIImageView+Extension.m */; };
 		847D268D1FED14C300995D42 /* UIControl+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = 847D268B1FED14C300995D42 /* UIControl+Extension.h */; };
 		847D268E1FED14C300995D42 /* UIControl+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 847D268C1FED14C300995D42 /* UIControl+Extension.m */; };
+		848EBFE91FF1F509009E74E5 /* Definition.h in Headers */ = {isa = PBXBuildFile; fileRef = 848EBFE81FF1F509009E74E5 /* Definition.h */; };
+		848EBFF11FF201E6009E74E5 /* GCDExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 848EBFEF1FF201E6009E74E5 /* GCDExtension.h */; };
+		848EBFF21FF201E6009E74E5 /* GCDExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EBFF01FF201E6009E74E5 /* GCDExtension.m */; };
+		848EBFF51FF2029A009E74E5 /* DirectoryExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 848EBFF31FF2029A009E74E5 /* DirectoryExtension.h */; };
+		848EBFF61FF2029A009E74E5 /* DirectoryExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EBFF41FF2029A009E74E5 /* DirectoryExtension.m */; };
+		848EBFF91FF20602009E74E5 /* DeviceExtension.h in Headers */ = {isa = PBXBuildFile; fileRef = 848EBFF71FF20602009E74E5 /* DeviceExtension.h */; };
+		848EBFFA1FF20602009E74E5 /* DeviceExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EBFF81FF20602009E74E5 /* DeviceExtension.m */; };
+		848EBFFD1FF22006009E74E5 /* HttpClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 848EBFFB1FF22006009E74E5 /* HttpClient.h */; };
+		848EBFFE1FF22006009E74E5 /* HttpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EBFFC1FF22006009E74E5 /* HttpClient.m */; };
+		848EC0021FF2252D009E74E5 /* UIMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 848EC0001FF2252D009E74E5 /* UIMessage.h */; };
+		848EC0031FF2252D009E74E5 /* UIMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 848EC0011FF2252D009E74E5 /* UIMessage.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +217,17 @@
 		847D26881FED12E700995D42 /* UIImageView+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+Extension.m"; sourceTree = "<group>"; };
 		847D268B1FED14C300995D42 /* UIControl+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIControl+Extension.h"; sourceTree = "<group>"; };
 		847D268C1FED14C300995D42 /* UIControl+Extension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIControl+Extension.m"; sourceTree = "<group>"; };
+		848EBFE81FF1F509009E74E5 /* Definition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Definition.h; sourceTree = "<group>"; };
+		848EBFEF1FF201E6009E74E5 /* GCDExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GCDExtension.h; sourceTree = "<group>"; };
+		848EBFF01FF201E6009E74E5 /* GCDExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GCDExtension.m; sourceTree = "<group>"; };
+		848EBFF31FF2029A009E74E5 /* DirectoryExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DirectoryExtension.h; sourceTree = "<group>"; };
+		848EBFF41FF2029A009E74E5 /* DirectoryExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DirectoryExtension.m; sourceTree = "<group>"; };
+		848EBFF71FF20602009E74E5 /* DeviceExtension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeviceExtension.h; sourceTree = "<group>"; };
+		848EBFF81FF20602009E74E5 /* DeviceExtension.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeviceExtension.m; sourceTree = "<group>"; };
+		848EBFFB1FF22006009E74E5 /* HttpClient.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HttpClient.h; sourceTree = "<group>"; };
+		848EBFFC1FF22006009E74E5 /* HttpClient.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HttpClient.m; sourceTree = "<group>"; };
+		848EC0001FF2252D009E74E5 /* UIMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIMessage.h; sourceTree = "<group>"; };
+		848EC0011FF2252D009E74E5 /* UIMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UIMessage.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -298,6 +320,8 @@
 			children = (
 				5E3AB4431FEF5EC500F5CAE0 /* Http.h */,
 				5E3AB4441FEF5EC500F5CAE0 /* Http.m */,
+				848EBFFB1FF22006009E74E5 /* HttpClient.h */,
+				848EBFFC1FF22006009E74E5 /* HttpClient.m */,
 			);
 			path = Http;
 			sourceTree = "<group>";
@@ -342,6 +366,9 @@
 			isa = PBXGroup;
 			children = (
 				847723701FEB7070003475DA /* Extension.h */,
+				848EBFE81FF1F509009E74E5 /* Definition.h */,
+				848EBFFF1FF224C6009E74E5 /* Toast */,
+				848EBFEA1FF2015A009E74E5 /* CLang */,
 				5E3AB4421FEF5E9800F5CAE0 /* Http */,
 				5E3AB4391FEE1C2A00F5CAE0 /* Entity */,
 				5E3AB4381FEE1B2000F5CAE0 /* Entry */,
@@ -423,6 +450,28 @@
 			path = UIView;
 			sourceTree = "<group>";
 		};
+		848EBFEA1FF2015A009E74E5 /* CLang */ = {
+			isa = PBXGroup;
+			children = (
+				848EBFEF1FF201E6009E74E5 /* GCDExtension.h */,
+				848EBFF01FF201E6009E74E5 /* GCDExtension.m */,
+				848EBFF31FF2029A009E74E5 /* DirectoryExtension.h */,
+				848EBFF41FF2029A009E74E5 /* DirectoryExtension.m */,
+				848EBFF71FF20602009E74E5 /* DeviceExtension.h */,
+				848EBFF81FF20602009E74E5 /* DeviceExtension.m */,
+			);
+			path = CLang;
+			sourceTree = "<group>";
+		};
+		848EBFFF1FF224C6009E74E5 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				848EC0001FF2252D009E74E5 /* UIMessage.h */,
+				848EC0011FF2252D009E74E5 /* UIMessage.m */,
+			);
+			path = Toast;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -437,13 +486,18 @@
 				847D25CC1FECA8EC00995D42 /* ExceptionHandler.h in Headers */,
 				8477236E1FEB6E43003475DA /* UIImage+Extension.h in Headers */,
 				847723D31FEBC561003475DA /* UICellProtocol.h in Headers */,
+				848EBFE91FF1F509009E74E5 /* Definition.h in Headers */,
 				847D268D1FED14C300995D42 /* UIControl+Extension.h in Headers */,
 				5E3AB4241FEE0A8400F5CAE0 /* UINavigationController+Extension.h in Headers */,
 				847723741FEB7B06003475DA /* UIFont+Extension.h in Headers */,
+				848EBFF11FF201E6009E74E5 /* GCDExtension.h in Headers */,
+				848EC0021FF2252D009E74E5 /* UIMessage.h in Headers */,
 				847D26681FECF62D00995D42 /* NSNumber+Extension.h in Headers */,
 				8477237C1FEB7C18003475DA /* UITableView+Extension.h in Headers */,
+				848EBFFD1FF22006009E74E5 /* HttpClient.h in Headers */,
 				847723781FEB7BAD003475DA /* UIColor+Extension.h in Headers */,
 				8477236A1FEB6278003475DA /* UIButton+Extension.h in Headers */,
+				848EBFF51FF2029A009E74E5 /* DirectoryExtension.h in Headers */,
 				847D26741FED0EFC00995D42 /* NSDate+Extension.h in Headers */,
 				847D26851FED129700995D42 /* UIButton+Extension.h in Headers */,
 				5E3AB4451FEF5EC500F5CAE0 /* Http.h in Headers */,
@@ -451,6 +505,7 @@
 				5E3AB4201FEDFAB700F5CAE0 /* UIViewController+Extension.h in Headers */,
 				847D26891FED12E700995D42 /* UIImageView+Extension.h in Headers */,
 				5E3AB43C1FEE1C6600F5CAE0 /* VEntity.h in Headers */,
+				848EBFF91FF20602009E74E5 /* DeviceExtension.h in Headers */,
 				847723AD1FEB98B3003475DA /* UIAppPush.h in Headers */,
 				847D26791FED126400995D42 /* UIView+Extension.h in Headers */,
 				8477238E1FEB7D0D003475DA /* UISwitchCell.h in Headers */,
@@ -597,6 +652,8 @@
 				5E3AB4411FEE1D8100F5CAE0 /* UIView+Frame.m in Sources */,
 				8477237D1FEB7C18003475DA /* UITableView+Extension.m in Sources */,
 				5E3AB41D1FED632B00F5CAE0 /* NSObject+Extension.m in Sources */,
+				848EC0031FF2252D009E74E5 /* UIMessage.m in Sources */,
+				848EBFF61FF2029A009E74E5 /* DirectoryExtension.m in Sources */,
 				8477238F1FEB7D0D003475DA /* UISwitchCell.m in Sources */,
 				8477236B1FEB6278003475DA /* UIButton+Extension.m in Sources */,
 				847D268A1FED12E700995D42 /* UIImageView+Extension.m in Sources */,
@@ -607,6 +664,7 @@
 				847723751FEB7B06003475DA /* UIFont+Extension.m in Sources */,
 				847D267E1FED127100995D42 /* UILabel+Extension.m in Sources */,
 				5E3AB4321FEE1AC800F5CAE0 /* GPDatePicker.m in Sources */,
+				848EBFFA1FF20602009E74E5 /* DeviceExtension.m in Sources */,
 				5E3AB4211FEDFAB700F5CAE0 /* UIViewController+Extension.m in Sources */,
 				847D26691FECF62D00995D42 /* NSNumber+Extension.m in Sources */,
 				5E3AB43D1FEE1C6600F5CAE0 /* VEntity.m in Sources */,
@@ -616,9 +674,11 @@
 				5E3AB4251FEE0A8400F5CAE0 /* UINavigationController+Extension.m in Sources */,
 				847D268E1FED14C300995D42 /* UIControl+Extension.m in Sources */,
 				847723D01FEBC474003475DA /* UIBaseCell.m in Sources */,
+				848EBFF21FF201E6009E74E5 /* GCDExtension.m in Sources */,
 				847723AE1FEB98B3003475DA /* UIAppPush.m in Sources */,
 				847D26711FED080700995D42 /* NSString+Extension.m in Sources */,
 				847D266D1FED07B300995D42 /* UIView+Color.m in Sources */,
+				848EBFFE1FF22006009E74E5 /* HttpClient.m in Sources */,
 				847723951FEB7D38003475DA /* UIImageViewCell.m in Sources */,
 				5E3AB4371FEE1AC800F5CAE0 /* GPPickerView.m in Sources */,
 				847D25D61FECBD9200995D42 /* UICollectionView+Extension.m in Sources */,
